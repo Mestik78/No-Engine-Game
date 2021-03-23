@@ -12,7 +12,7 @@ from processInput import processInput
 
 
 
-createRoom()
+createPerlinNoise()
 
 
 

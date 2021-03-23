@@ -1,7 +1,9 @@
+import random
+
 
 roomSize = {
-	"X": 30,
-	"Y": 10
+	"X": 50,
+	"Y": 20
 }
 
 renderSizeMultiplier = {
@@ -10,6 +12,25 @@ renderSizeMultiplier = {
 }
 
 
+noiseSettings = {
+
+	"worldNoise": {
+		"XOffset": random.randrange(-16384,16384),
+		"YOffset": random.randrange(-16384,16384),
+
+		"XResolution": 16,
+		"YResolution": 16
+	},
+
+	"grassNoise": {
+		"XOffset": random.randrange(-16384,16384),
+		"YOffset": random.randrange(-16384,16384),
+
+		"XResolution": 8,
+		"YResolution": 8
+	}
+
+}
 
 
 roomContent = [ [ "" for i in range(roomSize["X"]) ] for j in range(roomSize["Y"]) ]

@@ -6,6 +6,7 @@ import random
 from data.items import *
 from data.world import roomSize, roomContent, roomRender, renderSizeMultiplier
 from data.gameState import gameState
+from data.colors import colors
 
 
 
@@ -25,7 +26,7 @@ def getRoomRender():
 
 				for SpriteX in range(renderSizeMultiplier["X"]):
 
-					roomRender[y * renderSizeMultiplier["Y"] + SpriteY][x * renderSizeMultiplier["X"] + SpriteX] = itemsInfo[roomContent[y][x]]["sprite"][renderStep % len(itemsInfo[roomContent[y][x]]["sprite"])][SpriteY][SpriteX]	#Añade el subSprite correspondiente
+					roomRender[y * renderSizeMultiplier["Y"] + SpriteY][x * renderSizeMultiplier["X"] + SpriteX] = colors[itemsInfo[roomContent[y][x]]["color"]] + itemsInfo[roomContent[y][x]]["sprite"][renderStep % len(itemsInfo[roomContent[y][x]]["sprite"])][SpriteY][SpriteX] + colors["end"]	#Añade el subSprite correspondiente
 
 
 
@@ -80,7 +81,7 @@ def render():
 
 	#---------pregunta
 	if gameState["gameState"] == 0:	#en caso de estar en estado de moverse
-		print("Where do you want to move next?")
+		print("Where do you want to move next? (W,A,S,D)")
 
 	print()
 

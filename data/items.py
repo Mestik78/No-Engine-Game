@@ -9,6 +9,7 @@ itemsInfo[0] = {
 	"itemName": "a floor",
 	"relevant": False,
 
+	"color": "black",
 	"sprite": [[[" ", " ", " "],
 			    [" ", " ", " "]]],
 
@@ -23,6 +24,7 @@ itemsInfo[1] = {
 	"itemName": "the player",
 	"relevant": False,
 
+	"color": "white",
 	"sprite": [[["ò", " ", "ó"],
 			    [" ", "-", " "]]],
 
@@ -37,6 +39,7 @@ itemsInfo[2] = {
 	"itemName": "a wall",
 	"relevant": True,
 
+	"color": "white",
 	"sprite": [[["█", "█", " "],
 			    ["█", "█", " "]]],
 
@@ -51,6 +54,7 @@ itemsInfo[3] = {
 	"itemName": "water",
 	"relevant": True,
 
+	"color": "cyan",
 	"sprite": [[["/", "/", "/"],
 			    ["/", "/", "/"]],
 
@@ -68,6 +72,7 @@ itemsInfo[4] = {
 	"itemName": "a door",
 	"relevant": True,
 
+	"color": "red",
 	"sprite": [[["║", "o", "║"],
 			    ["║", " ", "║"]]],
 
@@ -82,6 +87,7 @@ itemsInfo[5] = {
 	"itemName": "some grass",
 	"relevant": True,
 
+	"color": "green",
 	"sprite": [[[",", ",", ","],
 			    [",", ",", ","]]],
 

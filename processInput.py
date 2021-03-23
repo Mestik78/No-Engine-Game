@@ -4,7 +4,7 @@ from data.gameState import gameState
 
 def processInput():
 	
-	Input = input(">>")
+	Input = input(">>").lower()
 
 
 	if gameState["gameState"] == 0:
@@ -27,5 +27,5 @@ def processInput():
 		if len(gameState["pop-upResponses"]) > 0:
 			for i in gameState["pop-upResponses"]:
 
-				if Input == i["Code"]:
+				if Input == i["Code"].lower():
 					i["function"]()

@@ -1,10 +1,10 @@
 import math
 import random
-#import noise
+import noise
 
 from data.items import *
 from data.player import *
-from data.world import roomContent, roomSize, roomRender, roomCollision
+from data.world import roomContent, roomSize, roomRender, roomCollision, noiseSettings
 
 def spawnObject(x,y, id):
 
@@ -66,19 +66,31 @@ def createPerlinNoise():
 			spawnObject(x,y, 0)	#pone los suelos
 
 
+			noiseValue = (noise.snoise2(x / noiseSettings["worldNoise"]["XResolution"] + noiseSettings["worldNoise"]["XOffset"],
+								  		y / noiseSettings["worldNoise"]["YResolution"] + noiseSettings["worldNoise"]["YOffset"]) + 1) / 2
+
+			if noiseValue < 0.2:
+				spawnObject(x,y, 3) #agua
+
+			elif noiseValue < 0.7:
+				spawnObject(x,y, 0) #suelo
+
+				grassNoiseValue = (noise.snoise2(x / noiseSettings["grassNoise"]["XResolution"] + noiseSettings["grassNoise"]["XOffset"],
+									  			 y / noiseSettings["grassNoise"]["YResolution"] + noiseSettings["grassNoise"]["YOffset"]) + 1) / 2
+
+				if grassNoiseValue < 0.1:
+					spawnObject(x,y, 5) #grass
+
+			else:
+				spawnObject(x,y, 2) #montaña
+
+
+
+
+			
+
 			if x == player["position"]["X"] and y == player["position"]["Y"]:	#coloca al jugador
 
 				spawnObject(x,y, 1)
 
 				continue
-
-
-			
-			#noise = PerlinNoise()
-
-			
-			#if noise([x,y]) > 0.5:
-
-			#	spawnObject(x,y, 2)
-
-			#	continue
