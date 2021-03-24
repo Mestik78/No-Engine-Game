@@ -9,10 +9,11 @@ import time
 from render import render
 from worldGeneration import generate
 from processInput import processInput
+from data.gameState import gameState
 
+currentRoom = gameState["currentRoom"]
 
-
-generate(0,0)
+generate(currentRoom["Y"], currentRoom["X"])
 
 
 

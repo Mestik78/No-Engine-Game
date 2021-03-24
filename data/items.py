@@ -11,6 +11,9 @@ itemsInfo[0] = {
 	"volatile": True,
 
 	"color": "black",
+	"backgroundColor": "black",
+	"effect": "3",
+
 	"sprite": [[[" ", " ", " "],
 			    [" ", " ", " "]]],
 
@@ -27,6 +30,9 @@ itemsInfo[1] = {
 	"volatile": False,
 
 	"color": "white",
+	"backgroundColor": "black",
+	"effect": "bold",
+
 	"sprite": [[["ò", " ", "ó"],
 			    [" ", "-", " "]]],
 
@@ -43,6 +49,9 @@ itemsInfo[2] = {
 	"volatile": False,
 
 	"color": "white",
+	"backgroundColor": "black",
+	"effect": "bold",
+
 	"sprite": [[["█", "█", " "],
 			    ["█", "█", " "]]],
 
@@ -59,6 +68,9 @@ itemsInfo[3] = {
 	"volatile": False,
 
 	"color": "cyan",
+	"backgroundColor": "black",
+	"effect": "none",
+
 	"sprite": [[["/", "/", "/"],
 			    ["/", "/", "/"]],
 
@@ -78,6 +90,9 @@ itemsInfo[4] = {
 	"volatile": False,
 
 	"color": "red",
+	"backgroundColor": "black",
+	"effect": "none",
+
 	"sprite": [[["║", "o", "║"],
 			    ["║", " ", "║"]]],
 
@@ -94,6 +109,9 @@ itemsInfo[5] = {
 	"volatile": True,
 
 	"color": "green",
+	"backgroundColor": "black",
+	"effect": "3",
+
 	"sprite": [[[",", ",", ","],
 			    [",", ",", ","]]],
 
@@ -110,6 +128,9 @@ itemsInfo[6] = {
 	"volatile": False,
 
 	"color": "green",
+	"backgroundColor": "black",
+	"effect": "none",
+
 	"sprite": [[[" ", " ", " "],
 			    [" ", " ", " "]]],
 

@@ -2,13 +2,13 @@ import random
 
 
 roomSize = {
-	"X": 50,
-	"Y": 20
+	"X": 32,
+	"Y": 16
 }
 
 roomsAmount = {
-	"X": 5,
-	"Y": 5
+	"X": 8,
+	"Y": 4
 }
 
 renderSizeMultiplier = {
@@ -54,8 +54,8 @@ noiseSettings = {
 		"XOffset": random.randrange(-16384,16384),
 		"YOffset": random.randrange(-16384,16384),
 
-		"XResolution": 8,
-		"YResolution": 8
+		"XResolution": 16,
+		"YResolution": 16
 	}
 
 }
@@ -68,5 +68,5 @@ rooms = [ [ False for i in range(roomsAmount["X"]) ] for j in range(roomsAmount[
 roomContent = [ [ [ [ "" for i in range(roomSize["X"]) ] for j in range(roomSize["Y"]) ] for i in range(roomsAmount["X"]) ] for j in range(roomsAmount["Y"]) ]
 roomCollision = [ [ [ [ False for i in range(roomSize["X"]) ] for j in range(roomSize["Y"]) ] for i in range(roomsAmount["X"]) ] for j in range(roomsAmount["Y"]) ]
 
-roomRender = [ [ "" for i in range(roomSize["X"] * renderSizeMultiplier["X"]) ] for j in range(roomSize["Y"] * renderSizeMultiplier["Y"]) ]
-minimapRender = [ [ "" for i in range(roomsAmount["X"]) ] for j in range(roomsAmount["Y"]) ]
+roomRender = [ [ "" for i in range(roomSize["X"] * renderSizeMultiplier["X"] + 2) ] for j in range(roomSize["Y"] * renderSizeMultiplier["Y"] + 2) ]
+minimapRender = [ [ "" for i in range(roomsAmount["X"] + 2) ] for j in range(roomsAmount["Y"] + 2) ]

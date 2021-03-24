@@ -1,8 +1,11 @@
+import math
+from data.world import roomsAmount
+
 gameState = {
 
     "currentRoom": {
-        "X": 0,
-        "Y": 0
+        "X": math.floor(roomsAmount["X"] / 2),
+        "Y": math.floor(roomsAmount["Y"] / 2)
     },
 
     "gameStates": [dict() for x in range(6)],

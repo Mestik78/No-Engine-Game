@@ -17,29 +17,38 @@ def afterMovement():
 
 def movePlayer(roomY, roomX, y, x):
 
+	if rooms[roomY][roomX] == False:
+		generate(roomY, roomX)
+
+
+		
 	content = roomContent[roomY][roomX]
 	playerPosition = player["position"]
 
 	currentRoom = gameState["currentRoom"]
 
-	if rooms[roomY][roomX] == False:
-		generate(roomY, roomX)
 
 
-	roomContent[currentRoom["Y"]][currentRoom["X"]][playerPosition["Y"]][playerPosition["X"]] = player["itemBelow"]	#quita al jugador y pone el item que tenga debajo
+	if itemsInfo[content[y][x]]["collision"] == False:
 
-	playerPosition["roomX"] = roomX
-	playerPosition["roomY"] = roomY
+		roomContent[currentRoom["Y"]][currentRoom["X"]][playerPosition["Y"]][playerPosition["X"]] = player["itemBelow"]	#quita al jugador y pone el item que tenga debajo
 
-	playerPosition["X"] = x
-	playerPosition["Y"] = y
+		playerPosition["roomX"] = roomX
+		playerPosition["roomY"] = roomY
 
-	player["itemBelow"] = content[playerPosition["Y"]][playerPosition["X"]] #guarda el item debajo del jugador
-	content[playerPosition["Y"]][playerPosition["X"]] = 1	#pone al jugador en la nueva posición
+		playerPosition["X"] = x
+		playerPosition["Y"] = y
+
+		player["itemBelow"] = content[playerPosition["Y"]][playerPosition["X"]] #guarda el item debajo del jugador
+		content[playerPosition["Y"]][playerPosition["X"]] = 1	#pone al jugador en la nueva posición
+
+
+		gameState["currentRoom"]["X"] = roomX
+		gameState["currentRoom"]["Y"] = roomY
 
 	
 
-	afterMovement()
+		afterMovement()
 
 
 def playerWantsToMove(direction):

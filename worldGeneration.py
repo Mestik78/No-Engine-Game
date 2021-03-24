@@ -72,36 +72,37 @@ def createPerlinNoise(roomY, roomX):
 			if (roomY == roomsAmount["Y"] - 1 and y == roomSize["Y"] - 1) or (roomY == 0 and y == 0) or (roomX == roomsAmount["X"] - 1 and x == roomSize["X"] - 1) or (roomX == 0 and x == 0):
 				
 				spawnObject(roomX, roomY, x, y, 2)	#pone las paredes por el borde de todo el mapa
-
-
-
-			noiseValue = 0
-
-			for noiseType in noiseSettings["worldNoise"]:
-
-				noiseValue += (noise.snoise2((roomX * roomSize["X"] + x) / noiseType["XResolution"] + noiseType["XOffset"],
-								  			(roomY * roomSize["Y"] + y) / noiseType["YResolution"] + noiseType["YOffset"]) + 1) / 2 * noiseType["strength"]
-
-			if noiseValue < 0.4:
-				spawnObject(roomX, roomY, x, y, 3) #agua
-
-			elif noiseValue < 0.9:
-				spawnObject(roomX, roomY, x, y, 0) #suelo
-
-				grassNoiseValue = (noise.snoise2((roomX * roomSize["X"] + x) / noiseSettings["grassNoise"]["XResolution"] + noiseSettings["grassNoise"]["XOffset"],
-									  			 (roomY * roomSize["Y"] + y) / noiseSettings["grassNoise"]["YResolution"] + noiseSettings["grassNoise"]["YOffset"]) + 1) / 2
-
-				if grassNoiseValue < 0.3:
-					spawnObject(roomX, roomY, x, y, 5) #grass
-
 			else:
-				spawnObject(roomX, roomY, x, y, 2) #montaña
 
 
 
-			if y == roomSize["Y"] - 1 or y == 0 or x == roomSize["X"] - 1 or x == 0:
-				if itemsInfo[roomContent[roomY][roomX][y][x]]["volatile"]:
-					spawnObject(roomX, roomY, x, y, 6) #puertas invisibles
+				noiseValue = 0
+
+				for noiseType in noiseSettings["worldNoise"]:
+
+					noiseValue += (noise.snoise2((roomX * roomSize["X"] + x) / noiseType["XResolution"] + noiseType["XOffset"],
+												(roomY * roomSize["Y"] + y) / noiseType["YResolution"] + noiseType["YOffset"]) + 1) / 2 * noiseType["strength"]
+
+				if noiseValue < 0.4:
+					spawnObject(roomX, roomY, x, y, 3) #agua
+
+				elif noiseValue < 0.9:
+					spawnObject(roomX, roomY, x, y, 0) #suelo
+
+					grassNoiseValue = (noise.snoise2((roomX * roomSize["X"] + x) / noiseSettings["grassNoise"]["XResolution"] + noiseSettings["grassNoise"]["XOffset"],
+													(roomY * roomSize["Y"] + y) / noiseSettings["grassNoise"]["YResolution"] + noiseSettings["grassNoise"]["YOffset"]) + 1) / 2
+
+					if grassNoiseValue < 0.2:
+						spawnObject(roomX, roomY, x, y, 5) #grass
+
+				else:
+					spawnObject(roomX, roomY, x, y, 2) #montaña
+
+
+
+				if y == roomSize["Y"] - 1 or y == 0 or x == roomSize["X"] - 1 or x == 0:
+					if itemsInfo[roomContent[roomY][roomX][y][x]]["volatile"]:
+						spawnObject(roomX, roomY, x, y, 6) #puertas invisibles
 
 
 			
