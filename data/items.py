@@ -101,7 +101,7 @@ itemsInfo[5] = {
 	"collisionEvent": nothing
 
 }
-itemsInfo[5] = {
+itemsInfo[6] = {
 
 	"item": "traspasableRoomBorder",
 	"collision": False,

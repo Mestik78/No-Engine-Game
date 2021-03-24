@@ -19,13 +19,36 @@ renderSizeMultiplier = {
 
 noiseSettings = {
 
-	"worldNoise": {
-		"XOffset": random.randrange(-16384,16384),
-		"YOffset": random.randrange(-16384,16384),
+	"worldNoise": [
+		{
+			"strength": 0.75,
 
-		"XResolution": 16,
-		"YResolution": 16
-	},
+			"XOffset": random.randrange(-16384,16384),
+			"YOffset": random.randrange(-16384,16384),
+
+			"XResolution": 32,
+			"YResolution": 32
+		},
+		{
+			"strength": 0.2,
+
+			"XOffset": random.randrange(-16384,16384),
+			"YOffset": random.randrange(-16384,16384),
+
+			"XResolution": 16,
+			"YResolution": 16
+		},
+		{
+			"strength": 0.05,
+
+			"XOffset": random.randrange(-16384,16384),
+			"YOffset": random.randrange(-16384,16384),
+
+			"XResolution": 8,
+			"YResolution": 8
+		},
+	],
+		
 
 	"grassNoise": {
 		"XOffset": random.randrange(-16384,16384),
