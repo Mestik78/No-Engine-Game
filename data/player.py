@@ -5,8 +5,10 @@ from data.world import roomSize
 player = {
 	
 	"position": {
-		"X": 0,
-		"Y": 0
+		"roomX": 0,
+		"roomY": 0,
+		"X": 1,
+		"Y": 1
 	},
 	"itemBelow": 0
 

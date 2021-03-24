@@ -1,8 +1,11 @@
-from render import afterRenderMessage
-from playerMovement import movePlayer
-from data.gameState import gameState
+
 
 def processInput():
+
+	from render import afterRenderMessage
+	from playerMovement import playerWantsToMove
+	from data.gameState import gameState
+	
 	
 	Input = input(">>").lower()
 
@@ -18,7 +21,7 @@ def processInput():
 		else:
 			afterRenderMessage.append("Command not recognised")
 
-		movePlayer(playerMovement)
+		playerWantsToMove(playerMovement)
 
 
 

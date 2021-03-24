@@ -1,6 +1,6 @@
 from itemsFunctions import *
 
-itemsInfo = [dict() for x in range(6)]
+itemsInfo = [dict() for x in range(7)]
 
 itemsInfo[0] = {
 
@@ -8,6 +8,7 @@ itemsInfo[0] = {
 	"item": "floor",
 	"itemName": "a floor",
 	"relevant": False,
+	"volatile": True,
 
 	"color": "black",
 	"sprite": [[[" ", " ", " "],
@@ -23,6 +24,7 @@ itemsInfo[1] = {
 	"collision": False,
 	"itemName": "the player",
 	"relevant": False,
+	"volatile": False,
 
 	"color": "white",
 	"sprite": [[["ò", " ", "ó"],
@@ -38,6 +40,7 @@ itemsInfo[2] = {
 	"collision": True,
 	"itemName": "a wall",
 	"relevant": True,
+	"volatile": False,
 
 	"color": "white",
 	"sprite": [[["█", "█", " "],
@@ -53,6 +56,7 @@ itemsInfo[3] = {
 	"collision": True,
 	"itemName": "water",
 	"relevant": True,
+	"volatile": False,
 
 	"color": "cyan",
 	"sprite": [[["/", "/", "/"],
@@ -71,6 +75,7 @@ itemsInfo[4] = {
 	"collision": False,
 	"itemName": "a door",
 	"relevant": True,
+	"volatile": False,
 
 	"color": "red",
 	"sprite": [[["║", "o", "║"],
@@ -86,6 +91,7 @@ itemsInfo[5] = {
 	"collision": False,
 	"itemName": "some grass",
 	"relevant": True,
+	"volatile": True,
 
 	"color": "green",
 	"sprite": [[[",", ",", ","],
@@ -93,5 +99,21 @@ itemsInfo[5] = {
 
 	
 	"collisionEvent": nothing
+
+}
+itemsInfo[5] = {
+
+	"item": "traspasableRoomBorder",
+	"collision": False,
+	"itemName": "if you are able to see this, somebody didn't do their work right",
+	"relevant": False,
+	"volatile": False,
+
+	"color": "green",
+	"sprite": [[[" ", " ", " "],
+			    [" ", " ", " "]]],
+
+	
+	"collisionEvent": OpenDoor
 
 }

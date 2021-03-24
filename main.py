@@ -6,23 +6,18 @@ import time
 
 
 
-from render import render, afterRenderMessage
-from worldGeneration import createRoom, createPerlinNoise
+from render import render
+from worldGeneration import generate
 from processInput import processInput
 
 
 
-createPerlinNoise()
+generate(0,0)
 
 
 
-def GameLoop():
+while True:	#game loop
 
 	render()
 	processInput()
 
-
-	GameLoop()
-
-
-GameLoop()

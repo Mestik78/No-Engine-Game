@@ -1,5 +1,10 @@
 gameState = {
 
+    "currentRoom": {
+        "X": 0,
+        "Y": 0
+    },
+
     "gameStates": [dict() for x in range(6)],
     "gameState": 0,
 

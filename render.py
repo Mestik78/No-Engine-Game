@@ -4,19 +4,20 @@ import math
 import random
 
 from data.items import *
-from data.world import roomSize, roomContent, roomRender, renderSizeMultiplier
+from data.world import *
 from data.gameState import gameState
 from data.colors import colors
+from data.render import Message
 
 
 
 renderStep = 0
-afterRenderMessage = []
+afterRenderMessage = Message
 
 
 
 def getRoomRender():
-
+	
 	for y in range(roomSize["Y"]):
 
 		for x in range(roomSize["X"]):
@@ -26,7 +27,33 @@ def getRoomRender():
 
 				for SpriteX in range(renderSizeMultiplier["X"]):
 
-					roomRender[y * renderSizeMultiplier["Y"] + SpriteY][x * renderSizeMultiplier["X"] + SpriteX] = colors[itemsInfo[roomContent[y][x]]["color"]] + itemsInfo[roomContent[y][x]]["sprite"][renderStep % len(itemsInfo[roomContent[y][x]]["sprite"])][SpriteY][SpriteX] + colors["end"]	#Añade el subSprite correspondiente
+					roomRenderCellY = y * renderSizeMultiplier["Y"] + SpriteY
+					roomRenderCellX = x * renderSizeMultiplier["X"] + SpriteX
+
+					currentRoom =gameState["currentRoom"]
+					content = roomContent[currentRoom["Y"]][currentRoom["X"]][y][x]
+
+					roomContentInfo = itemsInfo[content]
+
+					roomContentSprite = roomContentInfo["sprite"]
+
+					color = colors[roomContentInfo["color"]]
+
+					roomRender[roomRenderCellY][roomRenderCellX] = color + roomContentSprite[renderStep % len(roomContentSprite)][SpriteY][SpriteX] + colors["end"]	#Añade el subSprite correspondiente
+
+
+def getMinimapRender():
+	
+	for y in range(roomsAmount["Y"]):
+
+		for x in range(roomsAmount["X"]):
+
+			currentRoom = gameState["currentRoom"]
+
+			if x == currentRoom["X"] and y == currentRoom["Y"]:
+				minimapRender[y][x] = "■"
+			else:
+				minimapRender[y][x] = "□"
 
 
 
@@ -37,11 +64,18 @@ def render():
 
 
 	getRoomRender()
+	getMinimapRender()
 
 	#---------renderiza la room
-	for y in range(roomSize["Y"] * renderSizeMultiplier["Y"]):
+	for y in roomRender:
 		separator = ''
-		print(separator.join(roomRender[y]))
+		print(separator.join(y))
+
+	print()
+
+	for y in minimapRender:
+		separator = ''
+		print(separator.join(y))
 
 
 
