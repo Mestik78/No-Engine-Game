@@ -2,7 +2,7 @@ import random
 
 
 roomSize = {
-	"X": 32,
+	"X": 64,
 	"Y": 16
 }
 
